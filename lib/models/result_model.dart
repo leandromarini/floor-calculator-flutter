@@ -3,6 +3,10 @@ class ResultModel {
   int piecesByWidth;
   int piecesByLength;
 
+  double pricePieces;
+  double priceFooter;
+  double pricePiecesAndFooter;
+
   ResultModel({
     this.areaFloor,
     this.piecesByWidth,

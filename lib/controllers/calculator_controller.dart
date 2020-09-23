@@ -23,11 +23,18 @@ class CalculatorController {
     floor.length = ParseHelper.toDouble(value);
   }
 
+  void setFloorPrice(String value) {
+    floor.price = ParseHelper.toDouble(value);
+  }
+
   ResultModel calculate() {
     final result = new ResultModel();
     result.piecesByWidth = (room.width / floor.width).ceil();
     result.piecesByLength = (room.length / floor.length).ceil();
     result.areaFloor = floor.length * floor.width;
+    result.pricePieces = floor.price * result.amountPieces;
+    result.priceFooter = floor.price * result.amountFloor;
+    result.pricePiecesAndFooter = floor.price * result.amountPiecesAndFooter;
     return result;
   }
 }

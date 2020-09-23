@@ -14,15 +14,18 @@ class ResultDialog extends StatelessWidget {
         children: [
           ListTile(
             title: Text('${result.amountPieces} pisos'),
-            subtitle: Text('Quantidade de pisos'),
+            subtitle: Text(
+                '| ${result.pricePieces} reais\nQuantidade de pisos para o chão'),
           ),
           ListTile(
             title: Text('${result.amountFloor} pisos'),
-            subtitle: Text('Quantidade de pisos para o rodapé'),
+            subtitle: Text(
+                '| ${result.priceFooter} reais\nQuantidade de pisos para o rodapé'),
           ),
           ListTile(
             title: Text('${result.amountPiecesAndFooter} pisos'),
-            subtitle: Text('Quantidade total de pisos'),
+            subtitle: Text(
+                '| ${result.pricePiecesAndFooter} reais\nQuantidade total de pisos'),
           ),
           Divider(),
           ListTile(

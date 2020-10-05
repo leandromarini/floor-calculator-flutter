@@ -58,9 +58,11 @@ class _CalculatorPageState extends State<CalculatorPage> {
             onSaved: _controller.setFloorLength,
           ),
           _buildVerticalSpace(),
-          _buildNumberInputField('Preço do piso',
+          _buildNumberInputField('Preço da unidade',
               onSaved: _controller.setFloorPrice),
-          _buildVerticalSpace(height: 40),
+          _buildVerticalSpace(height: 30),
+          _buildClearButton(),
+          _buildVerticalSpace(height: 10),
           _buildCalculateButton(),
         ],
       ),
@@ -86,6 +88,13 @@ class _CalculatorPageState extends State<CalculatorPage> {
     );
   }
 
+  _buildClearButton() {
+    return RaisedButton(
+      child: const Text('LIMPAR'),
+      onPressed: _clear,
+    );
+  }
+
   _buildHeaderText(String label) {
     return Container(
       color: Theme.of(context).accentColor.withOpacity(0.2),
@@ -102,7 +111,7 @@ class _CalculatorPageState extends State<CalculatorPage> {
     );
   }
 
-  _buildVerticalSpace({double height = 20.0}) {
+  _buildVerticalSpace({double height = 10.0}) {
     return SizedBox(height: height);
   }
 
@@ -115,5 +124,9 @@ class _CalculatorPageState extends State<CalculatorPage> {
         builder: (context) => ResultDialog(result),
       );
     }
+  }
+
+  void _clear() {
+    _formKey.currentState.reset();
   }
 }
